@@ -1,20 +1,10 @@
 // Ich erstelle einen Notizblock. Was muss der Notizblock können?
 
-const notes = ["Apfelmus", "Bananenbrei"];
-
-function renderNotes() {
-let notesRef = document.getElementById ("notescontent");
-notesRef.innerHTML = "";
-
-for (let index = 0; index < notes.length; index++) {
-    notesRef.innerHTML += notes[index] + "<br>";
-  }
-}
-
 
 /* Notizen erfassen: 
 - Fenster/Container zum Erfassen der Notizen -  Notizen brauchen einen closeBtn || saveBtn
-
+- Platzhalter Notizentext  in HTML <p id="Notizentext">Notizentext</p>
+*/
 
 
 /* Notizen speichern: 
