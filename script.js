@@ -1,44 +1,43 @@
 // Ich erstelle einen Notizblock. Was muss der Notizblock können?
 
-const notes = ["Apfelmus", "Bananenbrei"];
+let notes = ["Apfelmus", "Bananenbrei", "Lila Kuh"];
 
 function renderNotes() {
 let notesRef = document.getElementById ("notescontent");
 notesRef.innerHTML = "";
 
 for (let index = 0; index < notes.length; index++) {
-    notesRef.innerHTML += notes[index] + "<br>";
+  const note = notes[index];
+    notesRef.innerHTML += getNotesTemplate(note, index);
   }
 }
 
+function getNotesTemplate(note, index){
+  return `<p>+ ${note} <button onclick= "deleteNote(${index})">X</button></p>`;
+}
 
-/* Notizen erfassen: 
-- Fenster/Container zum Erfassen der Notizen -  Notizen brauchen einen closeBtn || saveBtn
+
+function addNote(){  //funktion um neue notizen zu erfassen, auszulesen und zu speichern
+let noteInputRef = document.getElementById ("note_input"); 
+let noteInput= noteInputRef.value; //value ist ein fester begriff in js und bezieht sich in dem fall auf den eingegebenen text
+notes.push(noteInput); //speicherort wird durch push in das array notes festgelegt
+renderNotes() //funktionsaufruf um die notizen anzeigen zu lassen
+noteInputRef.value = ""; //leert das Inputfeld
+}
+
+
+
+function deleteNote(index) { 
+  notes.splice(index,1)
+  renderNotes();
+}
+
 
 
 
 /* Notizen speichern: 
-- Speicherort
 - Datum- und Uhrzeitangabe mitspeichern
-- Speicherbutton
 */
-
-
-/* Notizen bei Aufruf anzeigen:
-- Fenster mit gespeicherter Notiz anzeigen lassen -> setzt Zugriff auf Speicherort voraus
-*/
-
-
-// Notizen löschen 
-
-
-
-/* Neues Eingabefenster für weitere Notizen
-- leeres Fenster, um neue Notiz zu schreiben -> Fenster muss geleert werden bei Aufruf
-*/
-
-
-
 // Suchfunktion für bereits erfasste Notizen
 // Archivierungsmöglichkeit 
 // Notizen öffnen und schließen können
