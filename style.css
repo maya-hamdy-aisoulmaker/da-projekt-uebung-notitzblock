@@ -1,5 +1,28 @@
-*{
-   box-sizing: border-box;
-   margin: 0; 
-   scroll-behavior: smooth;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.input_notes {
+  display: flex;
+  width: 45vh;
+  height: 20vh;
+  margin-bottom: 20px;
+  color: #bb8740;
+  background-color: #efefef;
+  border-radius: 25px;
+  border: 5px solid #bb8740;
+  padding: 25px;
+  align-items: flex-start;
+}
+
+.btn_addNote {
+  display: inline-flex;
+  align-items: center;
+  border: solid 2px;
+  border-color: #bb8740;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  color: #0e2a3f;
 }

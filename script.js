@@ -1,5 +1,3 @@
-// Ich erstelle einen Notizblock. Was muss der Notizblock können?
-
 let notes = ["Apfelmus", "Bananenbrei", "Lila Kuh"];
 
 function renderNotes() {
@@ -26,10 +24,9 @@ noteInputRef.value = ""; //leert das Inputfeld
 }
 
 
-
 function deleteNote(index) { 
-  notes.splice(index,1)
-  renderNotes();
+  notes.splice(index,1)  //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
+  renderNotes(); //funktionsaufruf 
 }
 
 
