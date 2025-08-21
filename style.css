@@ -6,7 +6,9 @@
 
 .container_input{
   display: flex;
+  border-radius: 25px;
 }
+
 
 .input_notes {
   display: flex;
