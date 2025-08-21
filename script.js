@@ -28,7 +28,10 @@ function getNotesTemplate(note, index){
 }
 
 function getTrashNotesTemplate(note, indexTrashNote){
-  return `<p>+ ${note} <button onclick= "deleteNote(${indexTrashNote})">X</button></p>`;
+  return `<p>+ ${note}
+  <button onclick= "restoreNote(${indexTrashNote})">restore</button>
+  <button onclick= "deleteNote(${indexTrashNote})">X</button>
+  </p>`;
 }
 
 function addNote(){  //funktion um neue notizen zu erfassen, auszulesen und zu speichern
@@ -51,7 +54,12 @@ function deleteNote(index) {
   trashNotes.splice(index, 1)  //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
   renderTrashNotes(); //funktionsaufruf 
 }
-
+function restoreNote(index) {
+  let restoredNote = trashNotes.splice(index, 1)[0];
+  notes.push(restoredNote);
+  renderNotes();
+  renderTrashNotes();
+}
 
 /* Notizen speichern: 
 - Datum- und Uhrzeitangabe mitspeichern
