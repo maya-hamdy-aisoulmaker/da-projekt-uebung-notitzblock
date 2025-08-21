@@ -50,3 +50,21 @@
   border: 5px solid #2C71DB;
   padding: 25px;
 }
+
+h3 {
+margin-top: 30px;
+margin-bottom: 10px;
+}
+
+
+.container_trashNotes {
+  display: flex;
+  flex-direction: column;
+  width: 45vh;
+  height: auto;
+  color: #bb8740;
+  background-color: #efefef;
+  border-radius: 25px;
+  border: 5px solid rgba(255, 0, 0, 0.641);
+  padding: 25px;
+}
