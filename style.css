@@ -4,6 +4,10 @@
   scroll-behavior: smooth;
 }
 
+.container_input{
+  display: flex;
+}
+
 .input_notes {
   display: flex;
   width: 45vh;
