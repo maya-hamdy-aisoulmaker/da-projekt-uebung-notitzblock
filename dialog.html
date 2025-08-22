@@ -14,19 +14,19 @@
     <main>
         <h3>Dialog für Papierkorb</h3>
 
-        <button onclick="openDialog()">Papierkorb öffnen</button>
+        <button aria-haspopup="dialog_for_bin" aria-controls="dialog_bin" onclick="openDialog()">Papierkorb öffnen</button>
 
-        <dialog id="dialog_bin">
+        <dialog id="dialog_bin" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
             <header>
-                <h3>Papierkorb</h3>
+                <h3 id="dialogTitle">Papierkorb</h3>
             </header>
 
             <section>
-                <p>Notizen die sich im Papierkorb befinden:</p>
+                <p id="dialogDescr">Notizen die sich im Papierkorb befinden:</p>
             </section>
 
             <footer>
-                <button onclick="closeDialog()">X</button>
+                <button aria-label="close dialog" onclick="closeDialog()">X</button>
             </footer>
         </dialog>
 
