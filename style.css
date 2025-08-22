@@ -56,6 +56,22 @@ margin-top: 30px;
 margin-bottom: 10px;
 }
 
+.btn_openDialog {
+  display: inline-flex;
+  align-items: center;
+  border: solid 2px;
+  border-color: #bb8740;
+  border-radius: 25px;
+  padding: 0.5em 1em;
+  color: #0e2a3f;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+#dialog_bin {
+margin: auto;
+}
+
 .container_trashNotes {
   color: #bb8740;
   background-color: #efefef;
@@ -69,18 +85,18 @@ dialog::backdrop{
   background-color: #bb8740;
   opacity: 0.3;
 }
-/*
-.container_trashNotes {
-  display: flex;
-  flex-direction: column;
-  width: 45vh;
-  height: auto;
-  color: #bb8740;
-  background-color: #efefef;
+
+.btn_close {
+  display: inline-flex;
+  align-items: center;
+  border: solid 2px;
+  border-color: #bb8740;
   border-radius: 25px;
-  border: 5px solid rgba(255, 0, 0, 0.641);
-  padding: 25px;
-}*/
+  padding: 0.5em 1em;
+  color: #0e2a3f;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
 
 footer {
   margin-top: 60px;

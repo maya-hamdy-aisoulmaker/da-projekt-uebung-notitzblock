@@ -34,26 +34,23 @@
     </div>
    
         <h3>Papierkorb</h3>
-        <!--<div class="container_trashNotes">
-        <div id="trash_content"></div>
-    </div> -->
-
    
-    <button aria-haspopup="dialog_for_bin" aria-controls="dialog_bin" onclick="openDialog()">Papierkorb öffnen</button>
+    <button aria-haspopup="dialog" aria-controls="dialog_bin" onclick="openDialog()" class="btn_openDialog">Papierkorb öffnen</button>
 
     <dialog id="dialog_bin" class="container_trashNotes" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
+      
         <header>
             <h3 id="dialogTitle">Papierkorb</h3>
         </header>
 
         <section>
             <div id="trash_content">
-            <p id="dialogDescr">Notizen die sich im Papierkorb befinden:</p>
+            <p id="dialogDescr">Es befinden sich keine Notizen im Papierkorb</p>
         </div>
         </section>
 
         <footer>
-            <button aria-label="close dialog" onclick="closeDialog()">X</button>
+            <button aria-label="close dialog" onclick="closeDialog()" class="btn_close">schließen</button>
         </footer>
     </dialog>
 
