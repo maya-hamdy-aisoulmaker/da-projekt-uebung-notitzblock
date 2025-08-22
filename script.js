@@ -2,6 +2,15 @@ let notes = ["Apfelmus", "Bananenbrei", "Lila Kuh"];
 
 let trashNotes = [];
 
+const dialogRef= document.getElementById("dialog_bin");
+
+function openDialog() {
+  dialogRef.showModal();
+  }
+  
+  function closeDialog() {
+   dialogRef.close(); 
+  }
 
 function renderNotes() {
 let notesRef = document.getElementById ("notescontent");
@@ -61,6 +70,15 @@ function restoreNote(index) {
   renderTrashNotes();
 }
 
+
+
+function openDialog() {
+dialogRef.showModal();
+}
+
+function closeDialog() {
+ dialogRef.close(); 
+}
 /* Notizen speichern: 
 - Datum- und Uhrzeitangabe mitspeichern
 */

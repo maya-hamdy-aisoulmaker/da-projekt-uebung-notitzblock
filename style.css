@@ -56,7 +56,20 @@ margin-top: 30px;
 margin-bottom: 10px;
 }
 
+.container_trashNotes {
+  color: #bb8740;
+  background-color: #efefef;
+  border-radius: 25px;
+  border: 5px solid rgba(255, 0, 0, 0.641);
+  padding: 25px;
+  
+}
 
+dialog::backdrop{
+  background-color: #bb8740;
+  opacity: 0.3;
+}
+/*
 .container_trashNotes {
   display: flex;
   flex-direction: column;
@@ -67,7 +80,7 @@ margin-bottom: 10px;
   border-radius: 25px;
   border: 5px solid rgba(255, 0, 0, 0.641);
   padding: 25px;
-}
+}*/
 
 footer {
   margin-top: 60px;

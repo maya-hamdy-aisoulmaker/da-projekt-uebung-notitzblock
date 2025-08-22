@@ -7,7 +7,7 @@
 
     <title>Notizblock</title>
 
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./assets.css">
     <link rel="stylesheet" href="./styles/standard.css">
@@ -34,9 +34,29 @@
     </div>
    
         <h3>Papierkorb</h3>
-        <div class="container_trashNotes">
+        <!--<div class="container_trashNotes">
         <div id="trash_content"></div>
-    </div>
+    </div> -->
+
+   
+    <button aria-haspopup="dialog_for_bin" aria-controls="dialog_bin" onclick="openDialog()">Papierkorb öffnen</button>
+
+    <dialog id="dialog_bin" class="container_trashNotes" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
+        <header>
+            <h3 id="dialogTitle">Papierkorb</h3>
+        </header>
+
+        <section>
+            <div id="trash_content">
+            <p id="dialogDescr">Notizen die sich im Papierkorb befinden:</p>
+        </div>
+        </section>
+
+        <footer>
+            <button aria-label="close dialog" onclick="closeDialog()">X</button>
+        </footer>
+    </dialog>
+
 </main>
 
 <footer>copyright Maya Hamdy - AI Soul Maker</footer>
