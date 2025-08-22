@@ -1,86 +1,96 @@
+let notesTitles = ["To-Do", "Ereignis", "Zitate"];
 let notes = ["Apfelmus", "Bananenbrei", "Lila Kuh"];
-
+let trashNotesTitles = [];
 let trashNotes = [];
 
-const dialogRef= document.getElementById("dialog_bin");
+const dialogRef = document.getElementById("dialog_bin");
 
 function openDialog() {
   dialogRef.showModal();
-  }
-  
-  function closeDialog() {
-   dialogRef.close(); 
-  }
+}
+
+function closeDialog() {
+  dialogRef.close();
+}
 
 function renderNotes() {
-let notesRef = document.getElementById ("notescontent");
-notesRef.innerHTML = "";
+  let notesRef = document.getElementById("notescontent");
+  notesRef.innerHTML = "";
 
-for (let index = 0; index < notes.length; index++) {
-  const note = notes[index];
+  for (let index = 0; index < notes.length; index++) {
+    const note = notes[index];
     notesRef.innerHTML += getNotesTemplate(note, index);
   }
 }
 
 function renderTrashNotes() {
-  let trashNotesRef = document.getElementById ("trash_content");
+  let trashNotesRef = document.getElementById("trash_content");
   trashNotesRef.innerHTML = "";
-  
-  for (let indexTrashNote = 0; indexTrashNote < trashNotes.length; indexTrashNote++) {
+
+  for (
+    let indexTrashNote = 0;
+    indexTrashNote < trashNotes.length;
+    indexTrashNote++
+  ) {
     const note = trashNotes[indexTrashNote];
     trashNotesRef.innerHTML += getTrashNotesTemplate(note, indexTrashNote);
-    }
   }
-
-function getNotesTemplate(note, index){
-  return `<p>+ ${note} <button onclick= "transferToTrash(${index})">X</button></p>`;
 }
 
-function getTrashNotesTemplate(note, indexTrashNote){
-  return `<p>+ ${note}
+function getNotesTemplate(note, index) {
+  return `<p>+ title: ${notesTitles[index]} -> ${note} <button onclick= "transferToTrash(${index})">X</button></p>`;
+}
+
+function getTrashNotesTemplate(note, indexTrashNote) {
+  return `<p>+ title: ${trashNotesTitles[indexTrashNote]}-> ${note}
   <button onclick= "restoreNote(${indexTrashNote})">restore</button>
   <button onclick= "deleteNote(${indexTrashNote})">X</button>
   </p>`;
 }
 
-function addNote(){  //funktion um neue notizen zu erfassen, auszulesen und zu speichern
-let noteInputRef = document.getElementById ("note_input"); 
-let noteInput= noteInputRef.value; //value ist ein fester begriff in js und bezieht sich in dem fall auf den eingegebenen text
-notes.push(noteInput); //speicherort wird durch push in das array notes festgelegt
-renderNotes() //funktionsaufruf um die notizen anzeigen zu lassen
-noteInputRef.value = ""; //leert das Inputfeld
+function addNote() {
+  //funktion um neue notizen zu erfassen, auszulesen und zu speichern
+  let noteInputRef = document.getElementById("note_input");
+  let noteInput = noteInputRef.value; //value ist ein fester begriff in js und bezieht sich in dem fall auf den eingegebenen text
+  notes.push(noteInput); //speicherort wird durch push in das array notes festgelegt
+  notesTitles.push("Notiz");
+  renderNotes(); //funktionsaufruf um die notizen anzeigen zu lassen
+  noteInputRef.value = ""; //leert das Inputfeld
 }
 
-
-function transferToTrash(index) { 
-  let trashNote = notes.splice(index,1);  //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
+function transferToTrash(index) {
+  const trashNote = notes.splice(index, 1)[0]; //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
   trashNotes.push(trashNote);
-  renderNotes(); //funktionsaufruf 
+  const trashNoteTitle = notesTitles.splice(index, 1)[0];
+  trashNotesTitles.push(trashNoteTitle);
+
+  renderNotes(); //funktionsaufruf
   renderTrashNotes(); //funktionsaufruf
 }
 
-function deleteNote(index) { 
-  trashNotes.splice(index, 1)  //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
-  renderTrashNotes(); //funktionsaufruf 
+function deleteNote(index) {
+  trashNotes.splice(index, 1); //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
+  trashNotesTitles.splice(index, 1);
+  renderTrashNotes(); //funktionsaufruf
 }
 function restoreNote(index) {
   let restoredNote = trashNotes.splice(index, 1)[0];
   notes.push(restoredNote);
+  let restoredTitle = trashNotesTitles.splice(index, 1)[0]; // hier auch [0]
+  notesTitles.push(restoredTitle);
   renderNotes();
   renderTrashNotes();
 }
 
-
-
 function openDialog() {
-dialogRef.showModal();
+  dialogRef.showModal();
 }
 
 function closeDialog() {
- dialogRef.close(); 
+  dialogRef.close();
 }
 /* Notizen speichern: 
 - Datum- und Uhrzeitangabe mitspeichern
 */
 // Suchfunktion für bereits erfasste Notizen
-// Archivierungsmöglichkeit 
+// Archivierungsmöglichkeit
