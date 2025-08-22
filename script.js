@@ -66,4 +66,3 @@ function restoreNote(index) {
 */
 // Suchfunktion für bereits erfasste Notizen
 // Archivierungsmöglichkeit 
-// Notizen öffnen und schließen können
