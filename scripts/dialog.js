@@ -5,5 +5,5 @@ dialogRef.showModal();
 }
 
 function closeDialog() {
- dialogRef.close();   
+ dialogRef.close(); 
 }
