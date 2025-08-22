@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Papierkorb</title>
+    <script src="./scripts/dialog.js" defer></script>
+    <link rel="stylesheet" href="./styles/dialog.css">
+
+</head>
+
+<body>
+    <main>
+        <h3>Dialog für Papierkorb</h3>
+
+        <button onclick="openDialog()">Papierkorb öffnen</button>
+
+        <dialog id="dialog_bin">
+            <header>
+                <h3>Papierkorb</h3>
+            </header>
+
+            <section>
+                <p>Notizen die sich im Papierkorb befinden:</p>
+            </section>
+
+            <footer>
+                <button onclick="closeDialog()">X</button>
+            </footer>
+        </dialog>
+
+
+
+
+    </main>
+</body>
+
+</html>
