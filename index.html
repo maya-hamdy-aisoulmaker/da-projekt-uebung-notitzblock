@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Notizblock</title>
-
+    <script src="./scripts/template.js" defer></script>
     <script src="./script.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./assets.css">
@@ -20,44 +20,46 @@
         <h1>Notizblock</h1>
     </header>
 
-<main>
-    <div class="container_input">
-        <input id="note_title" type="text" class="input_title" placeholder="Titel" >
-        <textarea id="note_input" class="input_notes" placeholder="Notiz"></textarea>
-    </div>
-
-    <button onclick="addNote()" class="btn_addNote">Notiz speichern</button>
-    <br>
-    <br>
-    <h3>Meine Notizen</h3>
-    <div class="container_saved_notes">
-        <div id="notescontent" class="container_notescontent">Notizentext</div>
-    </div>
-   
-        <h3>Papierkorb</h3>
-   
-    <button aria-haspopup="dialog" aria-controls="dialog_bin" onclick="openDialog()" class="btn_openDialog">Papierkorb öffnen</button>
-
-    <dialog id="dialog_bin" class="container_trashNotes" aria-labelledby="dialogTitle" aria-describedby="dialogDescr">
-      
-        <header>
-            <h3 id="dialogTitle">Papierkorb</h3>
-        </header>
-
-        <section>
-            <div id="trash_content">
-            <p id="dialogDescr">Es befinden sich keine Notizen im Papierkorb</p>
+    <main>
+        <div class="container_input">
+            <input id="note_title" type="text" class="input_title" placeholder="Titel">
+            <textarea id="note_input" class="input_notes" placeholder="Notiz"></textarea>
         </div>
-        </section>
 
-        <footer>
-            <button aria-label="close dialog" onclick="closeDialog()" class="btn_close">schließen</button>
-        </footer>
-    </dialog>
+        <button onclick="addNote()" class="btn_addNote">Notiz speichern</button>
+        <br>
+        <br>
+        <h3>Meine Notizen</h3>
+        <div class="container_saved_notes">
+            <div id="notescontent" class="container_notescontent">Notizentext</div>
+        </div>
 
-</main>
+        <h3>Papierkorb</h3>
 
-<footer>copyright Maya Hamdy - AI Soul Maker</footer>
+        <button aria-haspopup="dialog" aria-controls="dialog_bin" onclick="openDialog()"
+            class="btn_openDialog">Papierkorb öffnen</button>
+
+        <dialog id="dialog_bin" class="container_trashNotes" aria-labelledby="dialogTitle"
+            aria-describedby="dialogDescr">
+
+            <header>
+                <h3 id="dialogTitle">Papierkorb</h3>
+            </header>
+
+            <section>
+                <div id="trash_content">
+                    <p id="dialogDescr">Es befinden sich keine Notizen im Papierkorb</p>
+                </div>
+            </section>
+
+            <footer>
+                <button aria-label="close dialog" onclick="closeDialog()" class="btn_close">schließen</button>
+            </footer>
+        </dialog>
+
+    </main>
+
+    <footer>copyright Maya Hamdy - AI Soul Maker</footer>
 </body>
 
 </html>
