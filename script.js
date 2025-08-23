@@ -1,5 +1,5 @@
-let notesTitles = ["To-Do", "Ereignis", "Zitate"];
-let notes = ["Apfelmus", "Bananenbrei", "Lila Kuh"];
+let notesTitles = [];
+let notes = [];
 let trashNotesTitles = [];
 let trashNotes = [];
 
@@ -55,6 +55,7 @@ function addNote() {
   notes.push(noteInput); //speicherort wird durch push in das array notes festgelegt
   notesTitles.push("Notiz");
   renderNotes(); //funktionsaufruf um die notizen anzeigen zu lassen
+  saveData();
   noteInputRef.value = ""; //leert das Inputfeld
 }
 
@@ -66,12 +67,14 @@ function transferToTrash(index) {
 
   renderNotes(); //funktionsaufruf
   renderTrashNotes(); //funktionsaufruf
+  saveData();
 }
 
 function deleteNote(index) {
   trashNotes.splice(index, 1); //via splice und der zahl (markiert wieviele elemente entfernt werden) notizen löschen
   trashNotesTitles.splice(index, 1);
   renderTrashNotes(); //funktionsaufruf
+  saveData();
 }
 function restoreNote(index) {
   let restoredNote = trashNotes.splice(index, 1)[0];
@@ -80,15 +83,32 @@ function restoreNote(index) {
   notesTitles.push(restoredTitle);
   renderNotes();
   renderTrashNotes();
+  saveData();
 }
 
-function openDialog() {
-  dialogRef.showModal();
+function saveData() {
+  localStorage.setItem("notes", JSON.stringify(notes));
+  localStorage.setItem("notesTitles", JSON.stringify(notesTitles));
+  localStorage.setItem("trashNotes", JSON.stringify(trashNotes));
+  localStorage.setItem("trashNotesTitles", JSON.stringify(trashNotesTitles));
 }
 
-function closeDialog() {
-  dialogRef.close();
+function loadData() {
+  const n  = JSON.parse(localStorage.getItem("notes"));
+  const nt = JSON.parse(localStorage.getItem("notesTitles"));
+  const tn = JSON.parse(localStorage.getItem("trashNotes"));
+  const tnt = JSON.parse(localStorage.getItem("trashNotesTitles"));
+
+  if (Array.isArray(n)) notes = n;
+  if (Array.isArray(nt)) notesTitles = nt;
+  if (Array.isArray(tn)) trashNotes = tn;
+  if (Array.isArray(tnt)) trashNotesTitles = tnt;
 }
+
+loadData();
+renderNotes();
+renderTrashNotes();
+
 /* Notizen speichern: 
 - Datum- und Uhrzeitangabe mitspeichern
 */
