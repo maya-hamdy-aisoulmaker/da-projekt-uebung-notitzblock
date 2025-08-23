@@ -6,21 +6,42 @@
 
 .container_input{
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   border-radius: 25px;
 }
 
-
+.input_title,
 .input_notes {
-  display: flex;
+  display: block;
   width: 45vh;
-  height: 12vh;
-  margin-bottom: 10px;
   color: #bb8740;
   background-color: #efefef;
   border-radius: 25px;
   border: 5px solid #bb8740;
-  padding: 25px;
-  align-items: flex-start;
+  padding: 16px 25px;
+}
+
+.input_title {
+  height: 48px; 
+}
+
+.input_notes {
+  min-height: 12vh; 
+  resize: vertical; 
+}
+
+.input_title::placeholder,
+.input_notes::placeholder {
+  color: #bb8740;
+  opacity: 0.7;
+}
+
+
+.input_notes {
+  min-height: 12vh;
+  resize: vertical;
+  margin-bottom: 10px;
 }
 
 .btn_addNote {

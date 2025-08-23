@@ -38,7 +38,7 @@ function renderTrashNotes() {
 }
 
 function getNotesTemplate(note, index) {
-  return `<p>+ title: ${notesTitles[index]} -> ${note} <button onclick= "transferToTrash(${index})">X</button></p>`;
+  return `<p>- ${notesTitles[index]} -> ${note} <button onclick= "transferToTrash(${index})">X</button></p>`;
 }
 
 function getTrashNotesTemplate(note, indexTrashNote) {
@@ -49,14 +49,20 @@ function getTrashNotesTemplate(note, indexTrashNote) {
 }
 
 function addNote() {
-  //funktion um neue notizen zu erfassen, auszulesen und zu speichern
+  let titleInputRef = document.getElementById("note_title");
   let noteInputRef = document.getElementById("note_input");
-  let noteInput = noteInputRef.value; //value ist ein fester begriff in js und bezieht sich in dem fall auf den eingegebenen text
-  notes.push(noteInput); //speicherort wird durch push in das array notes festgelegt
-  notesTitles.push("Notiz");
-  renderNotes(); //funktionsaufruf um die notizen anzeigen zu lassen
+
+  let titleInput = titleInputRef.value;
+  let noteInput = noteInputRef.value;
+
+  notes.push(noteInput);
+  notesTitles.push(titleInput);   
+
+  renderNotes();
   saveData();
-  noteInputRef.value = ""; //leert das Inputfeld
+
+  titleInputRef.value = "";
+  noteInputRef.value = "";
 }
 
 function transferToTrash(index) {
