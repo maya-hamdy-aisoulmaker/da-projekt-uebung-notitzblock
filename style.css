@@ -61,18 +61,6 @@
   display: flex;
 }
 
-.container_notescontent {
-  display: flex;
-  flex-direction: column;
-  width: 45vh;
-  height: auto;
-  color: #bb8740;
-  background-color: #efefef;
-  border-radius: 25px;
-  border: 5px solid #2C71DB;
-  padding: 25px;
-}
-
 h3 {
 margin-top: 30px;
 margin-bottom: 10px;
@@ -102,6 +90,11 @@ margin: auto;
   padding: 25px;
   
 }
+.note-card.trash {
+  background: #f8f8f8;
+  border: solid 2px;
+  margin-top: 10px;;
+}
 
 dialog::backdrop{
   background-color: #bb8740;
@@ -124,3 +117,25 @@ footer {
   margin-top: 30px;
   font-size: 12px;
 }
+
+
+.container_notescontent {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  width: auto;
+}
+
+.note-card {
+  border: 1px solid #bb8740;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+  border: solid 2px;
+  margin-top: 10px;;
+}
+
+.note-card h4 {
+  margin: 0 0 8px;
+}
+
