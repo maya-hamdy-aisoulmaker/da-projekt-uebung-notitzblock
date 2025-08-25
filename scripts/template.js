@@ -3,11 +3,11 @@
 function getNotesTemplate(note, index) {
   return `
     <div class="note-card">
-      <h4>${notesTitles[index]}</h4>
-      <small>${notesDates[index]}</small>
+      <h4>${allNotes.notesTitles[index]}</h4>
+      <small>${allNotes.notesDates[index]}</small>
       <p>${note}</p>
-      <button onclick="transferToTrash(${index})">X</button>
-      <button onclick="transferToArchive(${index})">Archivieren</button>
+      <button onclick="moveNote(${index}, 'notes', 'trashNotes')">X</button>
+      <button onclick="moveNote(${index}, 'notes', 'archiveNotes')">Archivieren</button>
     </div>
   `;
 }
@@ -15,11 +15,11 @@ function getNotesTemplate(note, index) {
 function getArchiveNotesTemplate(note, indexArchiveNote) {
   return `
     <div class="note-card archive">
-      <h4>${archiveNotesTitles[indexArchiveNote]}</h4>
-      <small>${archiveNotesDates[indexArchiveNote]}</small> 
+      <h4>${allNotes.archiveNotesTitles[indexArchiveNote]}</h4>
+      <small>${allNotes.archiveNotesDates[indexArchiveNote]}</small> 
       <p>${note}</p>
-      <button onclick="restoreFromArchive(${indexArchiveNote})">restore</button>
-      <button onclick="deleteFromArchive(${indexArchiveNote})">X</button>
+      <button onclick="moveNote(${indexArchiveNote}, 'archiveNotes', 'notes')">restore</button>
+      <button onclick="moveNote(${indexArchiveNote}, 'archiveNotes', 'trashNotes')">X</button>
     </div>
   `;
 }
@@ -27,10 +27,10 @@ function getArchiveNotesTemplate(note, indexArchiveNote) {
 function getTrashNotesTemplate(note, indexTrashNote) {
   return `
     <div class="note-card trash">
-      <h4>${trashNotesTitles[indexTrashNote]}</h4>
-      <small>${trashNotesDates[indexTrashNote]}</small>    
+      <h4>${allNotes.trashNotesTitles[indexTrashNote]}</h4>
+      <small>${allNotes.trashNotesDates[indexTrashNote]}</small>    
       <p>${note}</p>
-      <button onclick="restoreNote(${indexTrashNote})">restore</button>
+      <button onclick="moveNote(${indexTrashNote}, 'trashNotes', 'notes')">restore</button>
       <button onclick="deleteNote(${indexTrashNote})">X</button>
     </div>
   `;
