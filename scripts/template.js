@@ -10,6 +10,16 @@
     `;
   }
 
+  function getArchiveNotesTemplate(note, indexArchiveNote) {
+    return `
+      <div class="note-card archive">
+        <h4>${archiveNotesTitles[indexArchiveNote]}</h4>
+        <p>${note}</p>
+        <button onclick="restoreFromArchive(${indexArchiveNote})">restore</button>
+        <button onclick="deleteFromArchive(${indexArchiveNote})">X</button>
+      </div>
+    `;
+  }
 
   function getTrashNotesTemplate(note, indexTrashNote) {
     return `

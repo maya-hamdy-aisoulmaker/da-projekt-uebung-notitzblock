@@ -34,6 +34,25 @@
             <div id="notescontent" class="container_notescontent">Notizentext</div>
         </div>
 
+        <h3>Archiv</h3>
+
+        <button onclick="openArchiveDialog()" class="btn_openDialog">Archiv öffnen</button>
+
+        <dialog id="dialog_archive" class="container_archiveNotes" aria-labelledby="dialogArchiveTitle"
+            aria-describedby="dialogArchiveDescr">
+            <header>
+                <h3 id="dialogArchiveTitle">Archiv</h3>
+            </header>
+            <section>
+                <div id="archive_content">
+                    <p id="dialogArchiveDescr">Es befinden sich keine Notizen im Archiv</p>
+                </div>
+            </section>
+            <footer>
+                <button onclick="closeArchiveDialog()" class="btn_close">schließen</button>
+            </footer>
+        </dialog>
+
         <h3>Papierkorb</h3>
 
         <button aria-haspopup="dialog" aria-controls="dialog_bin" onclick="openDialog()"
@@ -56,7 +75,7 @@
                 <button aria-label="close dialog" onclick="closeDialog()" class="btn_close">schließen</button>
             </footer>
         </dialog>
-
+       
     </main>
 
     <footer>copyright Maya Hamdy - AI Soul Maker</footer>

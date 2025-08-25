@@ -54,7 +54,8 @@
   padding: 0.5em 1em;
   color: #0e2a3f;
   cursor: pointer;
-  margin-bottom: 40px;
+  width: 140px;
+  background-color: rgb(216, 197, 171);
 }
 
 .container_saved_notes {
@@ -75,7 +76,8 @@ margin-bottom: 10px;
   padding: 0.5em 1em;
   color: #0e2a3f;
   cursor: pointer;
-  margin-bottom: 40px;
+  width: 140px;
+  background-color: rgb(216, 197, 171);
 }
 
 #dialog_bin {
@@ -139,3 +141,20 @@ footer {
   margin: 0 0 8px;
 }
 
+#dialog_archive {
+  margin: auto;
+}
+
+.container_archiveNotes {
+  color: #bb8740;
+  background-color: #efefef;
+  border-radius: 25px;
+  border: 5px solid rgba(0, 128, 0, 0.5);
+  padding: 25px;
+}
+
+.note-card.archive {
+  background: #f8f8f8;
+  border: solid 2px;
+  margin-top: 10px;
+}
