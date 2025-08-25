@@ -16,7 +16,7 @@ function getArchiveNotesTemplate(note, indexArchiveNote) {
   return `
     <div class="note-card archive">
       <h4>${archiveNotesTitles[indexArchiveNote]}</h4>
-      <small>${archiveNotesDates[indexArchiveNote]}</small>   <!-- FIX -->
+      <small>${archiveNotesDates[indexArchiveNote]}</small> 
       <p>${note}</p>
       <button onclick="restoreFromArchive(${indexArchiveNote})">restore</button>
       <button onclick="deleteFromArchive(${indexArchiveNote})">X</button>
@@ -28,7 +28,7 @@ function getTrashNotesTemplate(note, indexTrashNote) {
   return `
     <div class="note-card trash">
       <h4>${trashNotesTitles[indexTrashNote]}</h4>
-      <small>${trashNotesDates[indexTrashNote]}</small>        <!-- FIX -->
+      <small>${trashNotesDates[indexTrashNote]}</small>    
       <p>${note}</p>
       <button onclick="restoreNote(${indexTrashNote})">restore</button>
       <button onclick="deleteNote(${indexTrashNote})">X</button>
