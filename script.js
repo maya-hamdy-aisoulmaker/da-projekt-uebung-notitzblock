@@ -8,7 +8,9 @@ let archiveNotes = [];
 const dialogRef = document.getElementById("dialog_bin");
 const archiveDialogRef = document.getElementById("dialog_archive");
 
+
 function openDialog() {
+  renderTrashNotes();   
   dialogRef.showModal();
 }
 
@@ -17,6 +19,7 @@ function closeDialog() {
 }
 
 function openArchiveDialog() {
+  renderArchiveNotes();
   archiveDialogRef.showModal();
 }
 
@@ -102,7 +105,9 @@ function deleteNote(index) {
   trashNotesTitles.splice(index, 1);
   renderTrashNotes(); //funktionsaufruf
   saveData();
+
 }
+
 function restoreNote(index) {
   let restoredNote = trashNotes.splice(index, 1)[0];
   notes.push(restoredNote);
@@ -112,10 +117,14 @@ function restoreNote(index) {
   renderTrashNotes();
   saveData();
 }
+
 function deleteFromArchive(index) {
-  archiveNotes.splice(index, 1);
-  archiveNotesTitles.splice(index, 1);
+  const note  = archiveNotes.splice(index, 1)[0];
+  const title = archiveNotesTitles.splice(index, 1)[0];
+  trashNotes.unshift(note);
+  trashNotesTitles.unshift(title);
   renderArchiveNotes();
+  renderTrashNotes();
   saveData();
 }
 
@@ -163,4 +172,3 @@ renderTrashNotes();
 - Datum- und Uhrzeitangabe mitspeichern
 */
 // Suchfunktion für bereits erfasste Notizen
-// Archivierungsmöglichkeit

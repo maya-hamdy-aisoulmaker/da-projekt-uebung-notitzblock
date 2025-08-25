@@ -1,14 +1,15 @@
 
 
-  function getNotesTemplate(note, index) {
-    return `
-      <div class="note-card">
-        <h4>${notesTitles[index]}</h4>
-        <p>${note}</p>
-        <button onclick="transferToTrash(${index})">X</button>
-      </div>
-    `;
-  }
+function getNotesTemplate(note, index) {
+  return `
+    <div class="note-card">
+      <h4>${notesTitles[index]}</h4>
+      <p>${note}</p>
+      <button onclick="transferToTrash(${index})">X</button>
+      <button onclick="transferToArchive(${index})">Archivieren</button>
+    </div>
+  `;
+}
 
   function getArchiveNotesTemplate(note, indexArchiveNote) {
     return `
